@@ -1,29 +1,20 @@
-name: Python 3.8
-
+name: Azure Python 3.7
 on: [push]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: Set up Python 3.7.12
       uses: actions/setup-python@v1
       with:
-        python-version: 3.8
+        python-version: 3.7.12
     - name: Install dependencies
       run: |
-        make install
-    - name: Lint with pylint
+        make install-azure
+    - name: Lint
       run: |
         make lint
-    - name: Test with pytest
+    - name: Test
       run: |
         make test
-    - name: Format code
-      run: |
-        make format
-    
-    
